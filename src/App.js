@@ -10,7 +10,6 @@ import './App.css';
 import routes from './config/routes'
 // Components
 import Signup from './components/Signup';
-import About from './components/About';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import CommunityBoards from './components/CommunityBoards'
@@ -75,7 +74,6 @@ function App() {
           />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
           
-          <Route path="/about" component={About} />
           <Route path="/holistichub" component={Holistic} />
           <Route exact path='/buy' component={Buy} />
           {/* <Route path="/trade" component={Trade} /> */}
