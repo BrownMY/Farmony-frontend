@@ -12,7 +12,6 @@ import routes from './config/routes'
 import Signup from './components/Signup';
 import Footer from './components/Footer';
 import Login from './components/Login';
-import CommunityBoards from './components/CommunityBoards'
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Holistic from './components/Holistic'
