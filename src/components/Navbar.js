@@ -2,40 +2,43 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = (props) => {
+    //add divs to separate the ul from the links displayed
     return (
+
         <nav className="non-authenticated-nav">
             {/* <div className="collapse navbar-collapse" id="navbarsExample07"> */}
-
             {props.isAuth ?
-                <nav className="authenticated-nav">
-                    <li className="header-authenticated">
-                        <h1>FARMONY</h1>
-                    </li>
-                    <ul className="nav-sidebar-links">
+                <div className="nav-sidebar-container">
+                    <nav className="authenticated-nav">
+                        <li className="header-authenticated">
+                            <h1>FARMONY</h1>
+                        </li>
+                        <ul className="nav-sidebar-links">
 
 
-                        <li className="nav-item">
+                            <li className="nav-item">
 
 
-                            <NavLink className="nav-link-side" to="/holistichub">Holistic Hub</NavLink>
-                        </li>
-                        <li>
-                            {/* <NavLink className="nav-link"  to="/trade">Trade</NavLink> */}
-                        </li>
-                        <li>
-                            <NavLink className="nav-link-side" to="/buy">Buy</NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="nav-link-side" to="/volunteer">Volunteer</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link-side" to="/profile">Profile</NavLink>
-                        </li>
-                        <li>
-                            <span onClick={props.handleLogout} className="nav-link-side logout-link">Logout</span>
-                        </li>
-                    </ul>
-                </nav> :
+                                <NavLink className="nav-link-side" to="/holistichub">Holistic Hub</NavLink>
+                            </li>
+                            <li>
+                                {/* <NavLink className="nav-link"  to="/trade">Trade</NavLink> */}
+                            </li>
+                            <li>
+                                <NavLink className="nav-link-side" to="/buy">Buy</NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="nav-link-side" to="/volunteer">Volunteer</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link-side" to="/profile">Profile</NavLink>
+                            </li>
+                            <li>
+                                <span onClick={props.handleLogout} className="nav-link-side logout-link">Logout</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div> :
                 <ul className="nav-horizontalbar-links">
                     <li className="header">
                         <NavLink className="nav-logo" exact to="/"> FARMONY </NavLink>
@@ -51,8 +54,6 @@ const Navbar = (props) => {
                         <NavLink className="nav-link" to="/login">Login</NavLink>
                     </li>
                 </ul>}
-
-            {/* </div> */}
         </nav>
     );
 }
