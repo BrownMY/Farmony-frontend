@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import HolisticModel from '../models/holistic'
+
 const ViewPost = (props) => {
     const [post, setPost] = useState({})
     const [comments, setComments] = useState([])

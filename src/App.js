@@ -63,7 +63,6 @@ function App() {
   return (
     <div className="App">
       <div className="nav">
-        {/* <CommunityBoards /> */}
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
         <Switch className="switch">
           <Route path='/signup' component={Signup} />
