@@ -51,7 +51,7 @@ const Buy = () => {
             <h1 className="board-title">Buy</h1>
             <div className="board-container">
             <NewPost />
-            <container className="board-posts">
+            <div className="board-posts">
                 <h4 className="boardDescrip">Buy and sell goods. Please be kind and respectful.</h4>
                     {/* <Searchbar posts={posts}/> */}
                 <div className="postContainer">
@@ -61,7 +61,7 @@ const Buy = () => {
                         {listOfPosts}
                     </div>
                 </div>
-            </container>    
+            </div>    
             </div>
             
         </div>

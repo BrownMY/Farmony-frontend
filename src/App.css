@@ -697,7 +697,7 @@ a{
   padding: 10px;
   position: relative;
   text-align: center;
-  top: 3vh;
+  top: -3vh;
 }
 
 .newpost-button{
