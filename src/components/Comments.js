@@ -8,11 +8,12 @@ const Comments = (props) => {
 
     const [comment, setComment] = useState('')
     const [post, setPost] = useState([])
-    const [name, setName] = useState('')
+    // const [name, setName] = useState('')
     const [currentUser, setCurrentUser] = useState({});
     const [isAuthenticated, setIsAuthenticated] = useState(true);
 
-    useEffect( async () => {
+    useEffect(() => {
+        
         let token;
 
         if (!localStorage.getItem('jwtToken')) {
@@ -25,7 +26,7 @@ const Comments = (props) => {
         }
         setPost(props.post)
         
-    }, []);
+    }, [props.post]);
 
     const handleComment = async (e) => {
         await setComment(e.target.value)
@@ -39,7 +40,7 @@ const Comments = (props) => {
 
     const onFormSubmit = async (e) => {
         e.preventDefault()
-        console.log(name, comment)
+        // console.log(name, comment)
 
         const newComment =  await {
 

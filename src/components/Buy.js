@@ -1,9 +1,9 @@
-import { Container } from '@material-ui/core';
+// import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import BuyModel from '../models/buy'
 import NewPost from './NewPost'
-import Searchbar from './Searchbar'
+// import Searchbar from './Searchbar'
 
 
 const Buy = () => {

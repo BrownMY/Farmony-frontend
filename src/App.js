@@ -15,7 +15,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Holistic from './components/Holistic'
-import Trade from './components/Trade'
+// import Trade from './components/Trade'
 import Buy from './components/Buy'
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
@@ -80,6 +80,7 @@ function App() {
         
       </div>
       {routes}
+
       <Footer />
     </div>
   );
