@@ -2,6 +2,10 @@
   "name": "farmony-frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "17.x",
+    "npm": "8.xs"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
