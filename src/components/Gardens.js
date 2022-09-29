@@ -7,7 +7,6 @@ const Gardens = () => {
     useEffect(()=>{
         const fetchData = async() => {
             const res = await GardenModel.all()
-            console.log(res)
             setGardens(res.data)
         }
         fetchData()
