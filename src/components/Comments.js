@@ -1,73 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from '../utils/setAuthToken';
-import PostModel from '../models/post'
+import React, { useState, useEffect } from 'react'
 
+function Comments(props) {
 
-const Comments = (props) => {
+  const [comments, setComments] = useState([])
 
-    const [comment, setComment] = useState('')
-    const [post, setPost] = useState([])
-    // const [name, setName] = useState('')
-    const [currentUser, setCurrentUser] = useState({});
-    const [isAuthenticated, setIsAuthenticated] = useState(true);
+  useEffect(() => {
+    setComments(props.comments)
+  }, [props.comments]);
 
-    useEffect(() => {
-        
-        let token;
-
-        if (!localStorage.getItem('jwtToken')) {
-            setIsAuthenticated(false);
-            console.log('====> Authenticated is now FALSE');
-        } else {
-            token = jwt_decode(localStorage.getItem('jwtToken'));
-            setAuthToken(localStorage.getItem('jwtToken'));
-            setCurrentUser(token);
-        }
-        setPost(props.post)
-        
-    }, [props.post]);
-
-    const handleComment = async (e) => {
-        await setComment(e.target.value)
-        console.log('***** comment', comment)
-    }
-    
-    // const handleName = async (e) => {
-    //     await setName(e.target.value)
-    //     console.log('***** name', name)
-    // }
-
-    const onFormSubmit = async (e) => {
-        e.preventDefault()
-        // console.log(name, comment)
-
-        const newComment =  await {
-
-            name: currentUser.name,
-            photo: currentUser.photo,
-            content: comment,
-            date: Date()
-
-        }
-        
-
-        await PostModel.update(post._id, post.comment.push(newComment))
-        console.log(`***** Comment made *****`)
-    }
-
-    return (
-        <div>
-
-            <form onSubmit={onFormSubmit}>
-                <label>
-                    Add Comment:
-                    <input type="text" name="comment" value={comment} onChange={handleComment}></input>
-                </label><br />
-                <input type="submit" value="Submit"></input>
-            </form>
+    const commentList = comments.map((comment, index)=>{
+        return(
+        <div key={index} className="comments">
+            <h3>-{comment.name}</h3>
+            <p>{comment.data}</p>
+            <p>{comment.content}</p>
         </div>
-    );
+        )
+    })
+  return (
+    <div>
+       <h5 className="comment-title">Comments</h5>
+      { commentList }
+
+    </div>
+  )
 }
 
 export default Comments;

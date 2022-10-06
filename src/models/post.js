@@ -18,8 +18,8 @@ class PostModel {
         let request = axios.delete( )
         return request
     }
-    static show = (post) => {
-        let request = axios.show(`${endPoint}/${post._id}`)
+    static show = (postId) => {
+        let request = axios.get(`${endPoint}/${postId}`)
         return request
     }
     static update = (postId, updatedPostObject) =>{
