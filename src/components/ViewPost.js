@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Comments from './Comments';
 import PostModel from '../models/post'
 import PostComment from './PostComment';
 
 const ViewPost = (props) => {
-    const location = useLocation()
 
     const [post, setPost] = useState({})
     const [comments, setComments] = useState([])
-    const [content, setContent] = useState("")
-    const [name, setName] = useState("")
 
     const setData = async () => {
         let postId = props.match.params.id
@@ -34,7 +31,7 @@ const ViewPost = (props) => {
         
         <p className="post-content">{post.content}</p>
         <div>
-            <Comments comments={comments} />
+        <Comments comments={comments} />
         </div>
         <PostComment post={post} comments={comments} />
         </div>
