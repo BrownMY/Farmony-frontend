@@ -9,20 +9,20 @@ import './App.css';
 //Routes
 import routes from './config/routes'
 // Components
-import Signup from './components/Signup';
+import Buy from './components/ForumPages/Buy'
 import Footer from './components/Footer';
+import Holistic from './components/ForumPages/Holistic'
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
-import Holistic from './components/Holistic'
+import Signup from './components/Signup';
 // import Trade from './components/Trade'
-import Buy from './components/Buy'
 
-const PrivateRoute = ({ component: Component, ...rest}) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   let token = localStorage.getItem('jwtToken');
   console.log('===> Hitting a Private Route');
   return <Route {...rest} render={(props) => {
-    return token ? <Component {...rest} {...props} /> : <Redirect to="/login"/>
+    return token ? <Component {...rest} {...props} /> : <Redirect to="/login" />
   }} />
 }
 
@@ -31,7 +31,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
- 
+
   useEffect(() => {
     let token;
 
@@ -62,25 +62,29 @@ function App() {
 
   return (
     <div className="App">
-      <div className="nav">
-      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-        <Switch className="switch">
-          <Route path='/signup' component={Signup} />
-          <Route 
-            path="/login"
-            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
-          />
-          <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
-          
-          <Route path="/holistichub" component={Holistic} />
-          <Route exact path='/buy' component={Buy} />
-          {/* <Route path="/trade" component={Trade} /> */}
-        </Switch>
+      <div className='main-container'>
+         <div className="nav">
+          <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
 
-        
+          <Switch className="switch">
+            <Route path='/signup' component={Signup} />
+            <Route
+              path="/login"
+              render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />}
+            />
+            <Route
+              path="/holistichub"
+              render={(props) => <Holistic {...props} componentModel={'HolisticModel'} />}
+            />
+            <Route exact path='/buy' component={Buy} />
+            <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
+            {/* <Route path="/trade" component={Trade} /> */}
+          </Switch>
+        </div>
+        <div className='route-view'>
+          {routes}
+        </div>
       </div>
-      {routes}
-
       <Footer />
     </div>
   );
