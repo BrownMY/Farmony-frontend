@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import CloseIcon from '@mui/icons-material/Close';
+
 function Modal(props) {
     const [category, setCategory] = useState('Select')
     const [title, setTitle] = useState('')
@@ -72,13 +74,18 @@ function Modal(props) {
             e.preventDefault()
             alert('Please choose an option')
         }
+
+            setIsVisible(false)
     }
 
   return (
     <div className={ isVisible ? 'modal-class' : 'no-display'}>
     
-    <div className="makeNewPost">
+    <div className="makeNewPost bg-red-600">
+        <div className='title-div'>
             <h1 className="post-title">Post a new thread</h1>
+            <button onClick={handleClose} className='flex self-center bg-red-400 '><CloseIcon /></button>
+        </div>
             <form className="post-form" onSubmit={onFormSubmit}>
                 <label>
                     <p>Post as { currentUser.name }</p>
@@ -108,7 +115,6 @@ function Modal(props) {
                     <input className="new-post-submit" type="submit" value="Submit"></input>
                 </label>
             </form>        
-            <button onClick={handleClose}>close modal</button>
         </div>
 
     </div>
