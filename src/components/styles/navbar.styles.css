@@ -9,7 +9,7 @@
     position: fixed;
     top: 0;
     z-index: 3;
-    background-color: #7C997B;
+    background-color: var(--primary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     height: 100vh;
     width: 220px;
     z-index: 2;
