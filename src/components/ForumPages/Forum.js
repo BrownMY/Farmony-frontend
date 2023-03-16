@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 import NewPostModal from '../NewPostModal';
-import NewPost from '../NewPost'
+// import NewPost from '../NewPost'
 
 import './styles/forum.styles.css'
 
