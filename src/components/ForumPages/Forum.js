@@ -24,6 +24,7 @@ const Forum = (props) => {
     }, [props.posts]);
 
     const handleNewPostMode = () => {
+        console.log(isNewPostMode)
         setIsNewPostMode(true)
     }
 

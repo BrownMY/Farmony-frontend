@@ -17,13 +17,10 @@ function NewPostModal({ isOpen, user, category}) {
 
     useEffect(() => {
         setIsVisible(isOpen)
-        console.log(user)
-
     }, [isOpen, user]);
     
-    const handleClose = () => {
+    const closeModal = () => {
         setIsVisible(false)
-        console.log(`++ CLOSE MODAL ++`)
     }
 
     const handleTitle = (e) => {
@@ -78,12 +75,12 @@ function NewPostModal({ isOpen, user, category}) {
     }
 
   return (
-    <div className={ isVisible ? 'modal-class' : 'no-display'}>
+    <div className={ isVisible ? 'new-post-modal-class' : 'no-display'}>
     
     <div className="new-post-modal-container">
         <div className='title-div'>
             <h2 className="new-post-title">Post a new thread</h2>
-            <button onClick={handleClose} className='new-post-modal-close'><CloseIcon /></button>
+            <button onClick={closeModal} className='new-post-modal-close'><CloseIcon /></button>
         </div>
             <form className="post-form">
                 <label>

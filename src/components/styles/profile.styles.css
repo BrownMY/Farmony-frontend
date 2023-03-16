@@ -1,0 +1,143 @@
+:root {
+    --primary: #7C997B;
+    --secondary: #97b996;
+    --tertiary: #b8e4b7;
+    --cream-100: rgb(243, 252, 218);
+}
+
+.profile-container {}
+
+.welcome-user {
+    background-color: rgb(115, 181, 145);
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin-top: 0px;
+}
+
+.user-data-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-left-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px 0 50px;
+}
+
+.icon-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.profile-pic {
+    object-fit: cover;
+    position: relative;
+    width: 200px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.update-photo {
+    border: none;
+    background-color: none;
+    text-decoration: underline;
+}
+
+.user-data {
+    text-align: left;
+}
+
+.user-name-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.picture-change {
+    border: solid black 2px;
+    padding: 10px;
+}
+
+.badge-pic {
+    object-fit: cover;
+    position: relative;
+    width: auto;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.about-me-heading {
+    font-size: 30px;
+}
+
+
+
+.user-about-text-area{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin: .8vh 0;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(201, 220, 201);
+    border-radius: 5px;
+    text-align: left;
+}
+
+.upload-button {
+    position: relative;
+    background-color: #7C997B;
+    color: var(--cream-100);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+}
+
+.profile-right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.submit-button {
+    position: relative;
+    background-color: #7C997B;
+    color: var(--cream-100);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+}
+
+.preview-profile {
+    position: relative;
+    color: #156C28;
+    width: 100px;
+    left: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: rgba(115, 181, 145, .4);
+    border: 2px solid #156C28;
+
+}

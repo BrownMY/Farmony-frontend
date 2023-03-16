@@ -3,22 +3,28 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import UserModel from '../models/user'
 import EditForm from './EditForm'
-import CreateImage from './CreateImage'
+import UpdatePhotoModal from './UpdatePhotoModal'
+
+import './styles/profile.styles.css'
+
 const Profile = (props) => {
     const { handleLogout, user } = props;
     const { id, name, email, farmer, exp } = user;
-    const expirationTime = new Date(exp * 1000);
-    let currentTime = Date.now();
     const [about, setAbout] = useState('')
     const [photo, setPhoto] = useState('')
+    const [isVisible, setIsVisible] = useState(false)
+    const expirationTime = new Date(exp * 1000);
+    let currentTime = Date.now();
 
-    ///////////
+    useEffect(() => {
+        console.log(props)
+    }, []);
+
     const getAbout = async () => {
         let newAbout = ''
         const result = await UserModel.oneUser(id)
         newAbout = result.data.about
         setAbout(newAbout)
-        console.log(newAbout)
     }
     if (currentTime >= expirationTime) {
         handleLogout();
@@ -27,8 +33,8 @@ const Profile = (props) => {
         getAbout()
     }
     const userData = user ?
-        (<div className="profile-info">
-            <div className="name-farmer">
+        (<div className="user-data">
+            <div className="user-name-data">
                 <p>Name | {name}</p>
 
                 {farmer ? <img className="badge-pic" src="https://i.imgur.com/G9tBFn9.png" alt="farmer-badge" /> : ""}
@@ -44,23 +50,39 @@ const Profile = (props) => {
             </div>
         );
     };
+
+    const handlePhotoModal = () => {
+        isVisible ? isVisible : setIsVisible(true)
+    }
+
+    const closeModal = () => {
+        setIsVisible(false)
+    }
+
     return (
         <div >
-            <h4 className="welcome-user">Welcome {name}!</h4>
             <div className="profile-container">
-                <div className="pic-section">
-                    <CreateImage user={user} />
-                    {user ? userData : errorDiv()}
+                <div className={isVisible ? "modal-class" : "no-display"}>
+                    <UpdatePhotoModal user={user} isVisible={isVisible} />
                 </div>
-                <div className="about-container">
-                    <div>
-                        <h4 className="about-me-heading">About {name}</h4>
-                        <p className="about">{about}</p>
+                <h4 className="welcome-user">Welcome {name}!</h4>
+                <div className='user-data-container'>
+                    <div className="profile-left-section">
+                        <div className='icon-section'>
+                            {photo ? <img className="profile-pic" src={photo} /> : <img className="profile-pic" src="https://res.cloudinary.com/ddmbb2ian/image/upload/v1615672962/qvo_UWEYzvsVDmwUPEWLsCIh_xjgub8.jpg" />}
+                            <button onClick={handlePhotoModal} className="update-photo">Update Profile Photo</button>
+                        </div>
+                            {user ? userData : errorDiv()}
                     </div>
-                    <EditForm />
-                    <Link to={`/previewprofile/${user.id}`} className="preview-profile">Profile Preview</Link>
+                    <div className="profile-right-section">
+                        <div>
+                            <h4 className="about-me-heading">About {name}</h4>
+                            <p className="about-content">{about}</p>
+                        <EditForm />
+                        </div>
+                    </div>
                 </div>
-
+                <Link to={`/previewprofile/${user.id}`} className="preview-profile">Profile Preview</Link>
             </div>
 
         </div>
