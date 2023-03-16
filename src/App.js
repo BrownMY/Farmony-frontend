@@ -64,35 +64,35 @@ function App() {
   return (
     <div className="App">
       <div className='main-container'>
-         <div className="nav">
-          <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-            </div>
-            <div className="route-views">
+        <div className="nav">
+          <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} user={currentUser} />
+        </div>
+        <div className="route-views">
           <Switch className="switch">
             <Route path='/signup' component={Signup} />
             <Route
               path="/login"
               render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />}
-              />
+            />
             <Route
               path="/holistichub"
               render={() => <Holistic user={currentUser} componentModel={'HolisticModel'} />}
-              />
-            <Route 
-              exact path='/buy' 
+            />
+            <Route
+              exact path='/buy'
               render={() => <Buy user={currentUser} componentModel={'BuyModel'} />}
-              />
-            <Route 
-              exact path='/volunteer' 
+            />
+            <Route
+              exact path='/volunteer'
               render={() => <Volunteer user={currentUser} componentModel={'VolunteerModel'} />}
-              />
+            />
             <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
             {/* <Route path="/trade" component={Trade} /> */}
           </Switch>
-        <div className='route-view'>
-          {routes}
+          <div className='route-view'>
+            {routes}
+          </div>
         </div>
-              </div>
       </div>
       <Footer />
     </div>
