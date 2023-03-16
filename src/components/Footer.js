@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className="footer bg-dark">
             <div className="container text-center">
-                <span className="text-muted">@2021 Farmony</span>
+                <span className="text-muted">@2023 Farmony</span>
             </div>
         </footer>
     )

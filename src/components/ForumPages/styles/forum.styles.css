@@ -1,22 +1,22 @@
+:root {
+    --primary: #7C997B;
+    --secondary: #97b996;
+    --tertiary: #156C28;
+    --cream-100: rgb(243, 252, 218);
+}
+
 .forum-container {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-
 }
 
 .forum-title{
-    background-color: rgb(115, 181, 145) ;
-    color: white;
+    background-color: rgb(115, 181, 145);
+    color: var(--cream-100);
     position: relative;
     text-align: center;
     top: -3vh;
-    height: 50px;
-    width: 100%;
-    font-size: 35px;
     padding: 10px;
 }
 
@@ -28,14 +28,11 @@
 .posts-container{
     display: flex;
     flex-direction: row;
-    margin: 0 10px;
-    
+    justify-content: center;
 }
 
 .posts-scroll-container {
-    position: relative;
-    left: 10vw;
-    height: 70vh;
+    height: 75vh;
     width: 75vw;
     background:rgba(255,255,255,0.6);
     overflow: scroll;
@@ -44,48 +41,39 @@
 .new-post-button{
     position: relative;
     background-color: #7C997B;
-    color: white;
+    color: var(--cream-100);
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     border: none;
 }
 
-.post-div {
+.post-item-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin: .8vh 0;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(201, 220, 201);
+    border-left: 5px solid #90bd85;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.post-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    height: 15vh;
-    margin: .8vh 0;
-    text-align: center;
-    padding: 25px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(183, 209, 183);
-    border-left: 5px solid #90bd85;
-    border-radius: 5px;
+    width: 100%;
 }
 
-.poster-info {
-    position: relative;
-    padding: 5px 0;
-}
-
-.poster-photo {
-    width: 30px;
-    height: 30px;
-}
-
-.post-title{
-    background-color: rgb(221, 193, 166) ;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    color: white;
-    font-size: 25px;
-    margin: 0 10px;
-    width: 22vw;
+.post-header-photo {
+    border-radius: 30px;
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
 }
 
 .poster-name {
@@ -96,34 +84,35 @@
 .post-stamp {
     font-size: 13px;
     padding: 0;
+    margin-left: 5px;
 }
-    
+
 .post-type {
     background-color: #ffffff;
     border-radius: 15px;
     font-size: 14px;
-    padding: 6px;
+    padding: 2px 8px;
+    margin-left: 10px;
 }
 
-.view-post-button {
-    position: relative;
-    background-color: #7C997B;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    border: none;
+.post-title {
+    font-size: 20px;
+    font-weight:bolder;
 }
-
-
-            /* VIEW POST AND COMMENTS */
 
 .post-content{
+    max-height: 150px;
+    overflow: hidden;
+    font-size: 14px;
+}
+            /* VIEW POST AND COMMENTS */
+
+/* .post-content{
     background-color: white;
     margin-left: 50px;
     margin-right: 50px;
     padding: 20px;
-}
+} */
 .comment-title{
     background-color: rgb(115, 181, 145) ;
     justify-content: center;

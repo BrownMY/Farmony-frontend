@@ -13,7 +13,7 @@ export default(
     <Switch>
         <Route exact path='/' component={ Home } />
         <Route exact path='/gardens' component={ Gardens } />
-        <Route exact path='/newpost' component={ NewPost } />
+        {/* <Route exact path='/newpost' component={ NewPost } /> */}
         <Route exact path='/editform' component={ EditForm } />
         <Route exact path='/post/:id' component={ ViewPost } />
         <Route exact path='/gardenprofile/:id'  component={GardenProfile} />

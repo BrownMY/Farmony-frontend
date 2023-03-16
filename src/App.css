@@ -23,20 +23,16 @@ body{
 
 .main-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .route-view {
   position: relative;
 }
 
-/* .route-views {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.route-views {
   width: 100%;
-} */
+}
 
 
 /* *** Homepage Styling ***  */
@@ -393,116 +389,7 @@ a{
 }
 
 
-/* user profile styling */
-.profile-container{
-  margin: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
 
-}
-
-.welcome-user{
-  background-color: rgb(115, 181, 145) ;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 50px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  color: white;
-  font-size: 30px;
-  margin-top: 0px;
-}
-
-.badge-div {
-  position: relative; 
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.pic-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 50px;
-}
-.profile-pic {
-  object-fit: cover;
-  margin: 50px;
-  position: relative; 
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.picture-change{
-  border: solid black 2px;
-  padding: 10px;
-}
-.badge-pic {
-  object-fit: cover;
-  position: relative; 
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.about-me-heading{
-  font-size: 30px;
-}
-
-#aboutme{
-}
-.profile-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.profile-info{
-  margin: 50 px;
-}
-.name-farmer{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.about {
-  
-  border: solid black 2px;
-  padding: 20px;
-  background:rgba(255,255,255,0.6);
-}
- .edit-form{
-  background-color: rgba(115, 181, 145, .4);
-  color: #156C28;
- }
-.about-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  max-width: 500px;
-  width: 100%;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.about-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  
-}
-.preview-profile{
-  position: relative;
-  color: #156C28;
-  width: 100px;
-  left: 10px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: rgba(115, 181, 145, .4);
-  border: 2px solid #156C28;
-
-}
 
 /* about us page styling */
 

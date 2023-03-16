@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Moment from 'react-moment';
+import 'moment-timezone';
 import { Link } from 'react-router-dom'
 
 import NewPostModal from '../NewPostModal';
-// import NewPost from '../NewPost'
 
 import './styles/forum.styles.css'
 
@@ -12,6 +13,7 @@ const Forum = (props) => {
     const [description, setDescription] = useState([])
     const [posts, setPosts] = useState([])
     const [isNewPostMode, setIsNewPostMode] = useState(false)
+    //Why is this causing a rerender loop when trying to set in state?
     let style = { backgroundColor: 'white' }
 
 
@@ -19,7 +21,6 @@ const Forum = (props) => {
         setTitle(props.title)
         setDescription(props.description)
         setPosts(props.posts)
-        console.log(props.posts) 
     }, [props.posts]);
 
     const handleNewPostMode = () => {
@@ -27,41 +28,39 @@ const Forum = (props) => {
     }
 
     const listOfPosts = props.posts.map((post) => {
-    // clean this up. Exchange this for tailwind?
-        if ( post.postType === 'Sharing') {
+        // clean this up. Exchange this for tailwind?
+        if (post.postType === 'Sharing') {
             style = { border: '2px solid green', color: 'green' }
-        } else {
+        } else if (post.postType === 'Seeking'){
             style = { border: '2px solid orange', color: 'orange' }
         }
         return (
-            <div key={ post._id } className="post-div">
-               <div className="poster-info">
-                 <img className="poster-photo" src={ post.photo ? `post.photo` : `https://res.cloudinary.com/ddmbb2ian/image/upload/v1615672962/qvo_UWEYzvsVDmwUPEWLsCIh_xjgub8.jpg`} alt="Poster"></img>
-                <p className="poster-name">{ post.name }</p>
-                <h4 className="post-stamp"> <br /> { post.date.slice(0, 10) }  <br /> { post.date.slice(11, 16) }</h4>
-             </div>
-                <h4 style={ post.postType ? style : { display: 'none' }} className="post-type">{ post.postType }</h4>
-                <h3 className='post-title'>{ post.title } </h3>
-                <button className="view-post-button">
-                    <Link to={{ 
-                        pathname:`/post/${post._id}`
-                        }}>
-                        View Post
-                    </Link>
-                </button>
+            <Link to={{
+                pathname: `/post/${post._id}`
+            }}>
+            <div key={post._id} className="post-item-container">
+                <div className="post-header">
+                    <img className="post-header-photo" src={post.photo ? `post.photo` : `https://res.cloudinary.com/ddmbb2ian/image/upload/v1615672962/qvo_UWEYzvsVDmwUPEWLsCIh_xjgub8.jpg`} alt="Poster"></img>
+                        <p className="poster-name">{post.name} posted</p>
+                        <div className="post-stamp"><Moment fromNow>{post.date}</Moment></div>
+                <h4 style={post.postType ? style : { display: 'none' }} className="post-type">{post.postType}</h4>
+                </div>
+                <h3 className="post-title">{post.title} </h3>
+                <p className="post-content">{post.content}</p>
+                <div className='post-footer'>{post.comment.length} Comments</div>
             </div>
+                </Link>
         )
     });
 
     return (
         <div className='forum-container'>
-            <h1 className="forum-title">{ title }</h1>
-            <h4 className="forum-description">{ description }</h4>
+            <h1 className="forum-title">{title}</h1>
+            <p className="forum-description">{description}</p>
             <div className="posts-container">
-                <NewPostModal isOpen={isNewPostMode} user={props.user} category={props.title}/>
-                {/* <NewPost /> */}
+                <NewPostModal isOpen={isNewPostMode} user={props.user} category={props.title} />
                 <div className="posts-scroll-container">
-            <button className='new-post-button' onClick={handleNewPostMode}>New Post</button>
+                    <button className='new-post-button' onClick={handleNewPostMode}>New Post</button>
                     {listOfPosts}
                 </div>
 
