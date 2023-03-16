@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import Holistic from './components/ForumPages/Holistic'
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-import Profile from './components/Profile';
+import Profile from './components/views/Profile';
 import Signup from './components/Signup';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {

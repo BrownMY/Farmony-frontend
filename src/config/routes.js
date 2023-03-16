@@ -3,7 +3,7 @@ import Home from '../components/Home'
 import Gardens from '../components/Gardens'
 import NewPost from '../components/NewPost'
 import EditForm from '../components/EditForm'
-import ViewPost from '../components/ViewPost'
+import ViewPost from '../components/views/ViewPost'
 import GardenProfile from '../components/GardenProfile'
 import OtherProfiles from '../components/OtherProfiles'
 
