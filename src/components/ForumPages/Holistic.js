@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Forum from './Forum';
 import HolisticModel from '../../models/holistic'
 
-const Holistic = (props) => {
+const Holistic = ({ user }) => {
 
     const [posts, setPosts] = useState([])
 
@@ -14,7 +14,7 @@ const Holistic = (props) => {
             setPosts(res.data)
         };
         fetchData()
-    }, []);
+    }, [user]);
 
 
 
@@ -24,8 +24,9 @@ const Holistic = (props) => {
             title={'Holistic Hub'} 
             description={'Community chit-chat. Discuss community news, trade recipes, share photos, etc. Please be kind and respectful. '}
             posts={posts}
+            user={user}
             />
-            </div>
+        </div>
     );
 }
 

@@ -10,6 +10,7 @@ import './App.css';
 import routes from './config/routes'
 // Components
 import Buy from './components/ForumPages/Buy'
+import Volunteer from './components/ForumPages/Volunteer'
 import Footer from './components/Footer';
 import Holistic from './components/ForumPages/Holistic'
 import Login from './components/Login';
@@ -65,25 +66,33 @@ function App() {
       <div className='main-container'>
          <div className="nav">
           <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-
+            </div>
+            <div className="route-views">
           <Switch className="switch">
             <Route path='/signup' component={Signup} />
             <Route
               path="/login"
               render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />}
-            />
+              />
             <Route
               path="/holistichub"
-              render={(props) => <Holistic {...props} componentModel={'HolisticModel'} />}
-            />
-            <Route exact path='/buy' component={Buy} />
+              render={() => <Holistic user={currentUser} componentModel={'HolisticModel'} />}
+              />
+            <Route 
+              exact path='/buy' 
+              render={() => <Buy user={currentUser} componentModel={'BuyModel'} />}
+              />
+            <Route 
+              exact path='/volunteer' 
+              render={() => <Volunteer user={currentUser} componentModel={'VolunteerModel'} />}
+              />
             <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
             {/* <Route path="/trade" component={Trade} /> */}
           </Switch>
-        </div>
         <div className='route-view'>
           {routes}
         </div>
+              </div>
       </div>
       <Footer />
     </div>
