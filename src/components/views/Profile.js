@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import UserModel from '../../models/user'
 import EditForm from '../EditForm'
-import CreateImage from '../CreateImage'
+import UpdatedPhotoModal from '../UpdatePhotoModal'
 const Profile = (props) => {
     const { handleLogout, user } = props;
     const { id, name, email, farmer, exp } = user;
@@ -49,7 +49,7 @@ const Profile = (props) => {
             <h4 className="welcome-user">Welcome {name}!</h4>
             <div className="profile-container">
                 <div className="pic-section">
-                    <CreateImage user={user} />
+                    <UpdatedPhotoModal user={user} />
                     {user ? userData : errorDiv()}
                 </div>
                 <div className="about-container">
