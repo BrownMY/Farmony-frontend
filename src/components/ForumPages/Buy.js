@@ -4,22 +4,19 @@ import { Link } from 'react-router-dom'
 
 import BuyModel from '../../models/buy'
 import Forum from './Forum';
-// import Searchbar from './Searchbar'
 
 
-const Buy = () => {
+const Buy = ({ user }) => {
 
     const [posts, setPosts] = useState([])
-    let style = { backgroundColor: 'white' }
 
     useEffect(() => {
         const fetchData = async () => {
             const res = await BuyModel.all()
-
             setPosts(res.data)
         };
         fetchData()
-    }, []);
+    }, [user]);
 
     return (
         <div>
@@ -27,6 +24,7 @@ const Buy = () => {
             title={'Buy'} 
             description={'Buy and sell goods. Please be kind and respectful. '}
             posts={posts}
+            user={user}
             />
         </div>
 

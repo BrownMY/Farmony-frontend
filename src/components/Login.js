@@ -7,6 +7,8 @@ import setAuthToken from '../utils/setAuthToken';
 
 const { REACT_APP_SERVER_URL } = process.env;
 
+import './styles/login.styles.css'
+
 const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -46,8 +48,8 @@ const Login = (props) => {
     return (
        
         <div className="login-container">
-            <div>
-                <div>
+            <div className='login-form-container'>
+                <div className='login-fields'>
                 <h1 className="login">Login</h1>
                     <form className="login-form"onSubmit={handleSubmit}>
                         <div className="form-group">
@@ -58,7 +60,7 @@ const Login = (props) => {
                             <label htmlFor="password">Password  </label>
                             <input type="password" name="password" value={password} onChange={handlePassword} className="form-control"/>
                         </div>
-                        <button type="submit" className="form-group">Submit</button>
+                        <button type="submit" className="login-submit">Submit</button>
                     </form>
                 </div>
             </div>

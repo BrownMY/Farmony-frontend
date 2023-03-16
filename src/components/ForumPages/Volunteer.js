@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
-import Forum from './ForumPages/Forum';
-import VolunteerModel from '../models/volunteer'
+import Forum from './Forum';
+import VolunteerModel from '../../models/volunteer'
 
 
-const Volunteer = () => {
+const Volunteer = ({ user }) => {
 
     const [posts, setPosts] = useState([])
 
@@ -15,7 +15,7 @@ const Volunteer = () => {
             setPosts(res.data)
         };
         fetchData()
-    }, []);
+    }, [user]);
 
     return (
         <div>
@@ -23,6 +23,7 @@ const Volunteer = () => {
             title={'Volunteer'} 
             description={'For those seeking volunteers and those looking to help. Please be kind and respectful.'}
             posts={posts}
+            user={user}
             />
         </div>
 

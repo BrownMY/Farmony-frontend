@@ -6,7 +6,6 @@ import EditForm from '../components/EditForm'
 import ViewPost from '../components/ViewPost'
 import GardenProfile from '../components/GardenProfile'
 import OtherProfiles from '../components/OtherProfiles'
-import Volunteer from '../components/Volunteer'
 
 
 
@@ -19,6 +18,5 @@ export default(
         <Route exact path='/post/:id' component={ ViewPost } />
         <Route exact path='/gardenprofile/:id'  component={GardenProfile} />
         <Route exact path='/previewprofile/:id'  component={OtherProfiles} />
-        <Route exact path='/volunteer' component={Volunteer} />
     </Switch> 
 )

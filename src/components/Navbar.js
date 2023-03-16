@@ -5,7 +5,7 @@ const Navbar = (props) => {
     //add divs to separate the ul from the links displayed
     return (
 
-        <nav className="non-authenticated-nav">
+        <div className="nav-bar">
             {/* <div className="collapse navbar-collapse" id="navbarsExample07"> */}
             {props.isAuth ?
                 <div className="nav-sidebar-container">
@@ -39,6 +39,7 @@ const Navbar = (props) => {
                         </ul>
                     </nav>
                 </div> :
+                
                 <ul className="nav-horizontalbar-links">
                     <li className="header">
                         <NavLink className="nav-logo" exact to="/"> FARMONY </NavLink>
@@ -54,7 +55,7 @@ const Navbar = (props) => {
                         <NavLink className="nav-link" to="/login">Login</NavLink>
                     </li>
                 </ul>}
-        </nav>
+        </div>
     );
 }
 

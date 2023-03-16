@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react'
 
+import BuyModel from '../models/buy'
+import HolisticModel from '../models/holistic'
+import VolunteerModel from '../models/volunteer'
+
 import CloseIcon from '@mui/icons-material/Close';
 
-function Modal(props) {
-    const [category, setCategory] = useState('Select')
+import './modals/styles/new-post-modal.styles.css'
+
+function NewPostModal({ isOpen, user, category}) {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
     const [postType, setPostType] = useState('Select')
     const [categoryPostType, setCategoryPostType] = useState({ display: 'none' })
-    const [currentUser, setCurrentUser] = useState({});
-    const [isAuthenticated, setIsAuthenticated] = useState(true);
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
-        setIsVisible(props.isVisible)
-    }, [props.isVisible]);
+        setIsVisible(isOpen)
+        console.log(user)
+
+    }, [isOpen, user]);
     
     const handleClose = () => {
         setIsVisible(false)
@@ -27,34 +32,28 @@ function Modal(props) {
     const handleBody = (e) => {
         setBody(e.target.value)
     }
-    const handleCategory = (e) => {
-        setCategory(e.target.value)
-        if (e.target.value === 'Buy' || e.target.value === 'Volunteer') {
-            setCategoryPostType({ display: 'block' })
-        } else {
-            setCategoryPostType({ display: 'none' })
-        }
-    }
+
     const handlePostType = (e) => {
         setPostType(e.target.value)
     }
     const onFormSubmit = (e) => {
-        
+    //pass down category in props. do not use drop dowm 
+
         if (category === 'Holistic Hub') {
             HolisticModel.create({
                 title,
-                name: currentUser.name,
-                photo: currentUser.photo,
-                farmer: currentUser.farmer,
+                name: user.name,
+                photo: user.photo,
+                farmer: user.farmer,
                 content: body,
                 category,
             })
         } else if (category === 'Volunteer') {
             VolunteerModel.create({
                 title,
-                name: currentUser.name,
-                photo: currentUser.photo,
-                farmer: currentUser.farmer,
+                name: user.name,
+                photo: user.photo,
+                farmer: user.farmer,
                 content: body,
                 postType,
                 category,
@@ -62,9 +61,9 @@ function Modal(props) {
         } else if (category === 'Buy') {
             BuyModel.create({
                 title,
-                name: currentUser.name,
-                photo: currentUser.photo,
-                farmer: currentUser.farmer,
+                name: user.name,
+                photo: user.photo,
+                farmer: user.farmer,
                 content: body,
                 postType,
                 category,
@@ -75,35 +74,29 @@ function Modal(props) {
             alert('Please choose an option')
         }
 
-            setIsVisible(false)
+        setIsVisible(false)
     }
 
   return (
     <div className={ isVisible ? 'modal-class' : 'no-display'}>
     
-    <div className="makeNewPost bg-red-600">
+    <div className="new-post-modal-container">
         <div className='title-div'>
-            <h1 className="post-title">Post a new thread</h1>
-            <button onClick={handleClose} className='flex self-center bg-red-400 '><CloseIcon /></button>
+            <h2 className="new-post-title">Post a new thread</h2>
+            <button onClick={handleClose} className='new-post-modal-close'><CloseIcon /></button>
         </div>
-            <form className="post-form" onSubmit={onFormSubmit}>
+            <form className="post-form">
                 <label>
-                    <p>Post as { currentUser.name }</p>
+                    <p>Posting as { user.name }</p>
                     <p>Post Title: </p>
-                    <input type="text" name="postTitle" value={title} onChange={handleTitle}></input>
+                    <input type="text" name="postTitle" value={title} onChange={handleTitle} className="new-post-modal-title"></input>
                 </label><br />
                 <label>
-                    <textarea type="text" rows='5' cols='80' name="body" value={body} onChange={handleBody}></textarea>
+                    <textarea type="text" rows='5' cols='80' name="body" value={body} onChange={handleBody} className="new-post-modal-body"></textarea>
                 </label><br />
                 <label>
-                    <p>Category: </p>
-                    <select value={category} onChange={handleCategory}>
-                        <option value="Select">Select</option>
-                        <option value="Buy">Buy</option>
-                        <option value="Volunteer">Volunteer</option>
-                        <option value="Holistic Hub">Holistic Hub</option>
-                    </select>
-                    <div className="category-post-type" style={categoryPostType}>
+                    <p>Posting in {category} </p>
+                    <div className="category-post-type" style={ category === 'Holistic Hub' ? {display: 'none'} : {display: 'block'}}>
                         Post Type:
                     <select value={postType} onChange={handlePostType}>
                             <option value="Select">Select</option>
@@ -112,7 +105,7 @@ function Modal(props) {
                         </select>
                     </div>
 
-                    <input className="new-post-submit" type="submit" value="Submit"></input>
+                    <input onClick={onFormSubmit} className="new-post-submit" type="submit" value="Submit"></input>
                 </label>
             </form>        
         </div>
@@ -120,4 +113,4 @@ function Modal(props) {
     </div>
 )};
 
-export default Modal;
+export default NewPostModal;
