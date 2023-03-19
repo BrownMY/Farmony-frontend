@@ -3,25 +3,22 @@ import { NavLink } from 'react-router-dom';
 
 import './styles/navbar.styles.css'
 const Navbar = ({ isAuth, handleLogout, user }) => {
-    //add divs to separate the ul from the links displayed
     useEffect(() => {
-        console.log(user)
     }, []);
     return (
 
         <div>
-            {/* <div className="collapse navbar-collapse" id="navbarsExample07"> */}
             {isAuth ?
                 <div className="nav-authenticated-container">
                     <div className="header-authenticated">
                         <h1 className='nav-authenticated-title'>FARMONY</h1>
                     </div>
                     <div className='nav-authenticated-user-data'>
-                        <img className="user-photo" src={ user.photo ? `user.photo` : `https://res.cloudinary.com/ddmbb2ian/image/upload/v1615672962/qvo_UWEYzvsVDmwUPEWLsCIh_xjgub8.jpg`} alt="user"></img>
+                        <img className="user-photo" src={user.photo ? `user.photo` : `https://res.cloudinary.com/ddmbb2ian/image/upload/v1615672962/qvo_UWEYzvsVDmwUPEWLsCIh_xjgub8.jpg`} alt="user"></img>
                         <div>
                             <div className='user-name'>
-                                { user.name }
-                                { user.farmer ? <img className="badge-pic" src="https://i.imgur.com/G9tBFn9.png" alt="farmer-badge" /> : "" }
+                                {user.name}
+                                {user.farmer ? <img className="badge-pic" src="https://i.imgur.com/G9tBFn9.png" alt="farmer-badge" /> : ""}
                             </div>
                         </div>
                     </div>

@@ -5,13 +5,12 @@ const GardenProfile = (props) => {
     const [garden, setGarden] = useState([])
     let thisGardenId = props.match.params.id
     useEffect(() => {
-            const fetchData = async() => {
+        const fetchData = async () => {
             const gardens = await GardenModel.all()
             let tempgarden = gardens.data.filter((eachGarden) => {
                 return thisGardenId === eachGarden._id
             })
             setGarden(tempgarden)
-            console.log(tempgarden)
         }
         fetchData()
     }, [])
@@ -38,7 +37,6 @@ const GardenProfile = (props) => {
                         </div>
                         <div className="garden-profile-about">
                             <p>{gardenData.about}</p> </div>
-                        {/* <div className="garden-profile-reviews"> */}
                         <div className="garden-profile-reviews-heading">
                             <h3>Reviews</h3>
                         </div>

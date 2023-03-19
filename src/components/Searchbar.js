@@ -11,7 +11,6 @@ function Searchbar(props) {
         for (let post of posts) {
             let postVals = Object.values(post)
 
-            // console.log(postVals)
             const searchedPosts = postVals.filter((post) => post.includes('Tan')
             )
             

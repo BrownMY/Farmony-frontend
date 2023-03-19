@@ -26,39 +26,38 @@ const Login = (props) => {
         const userData = { email, password };
 
         axios.post(`${REACT_APP_SERVER_URL}/users/login`, userData)
-        .then(response => {
-            const { token } = response.data;
-            // save token to localStorage
-            localStorage.setItem('jwtToken', token);
-            // set token to headers
-            setAuthToken(token);
-            // decode token to get the user data
-            const decoded = jwt_decode(token);
-            // set the current user
-            props.nowCurrentUser(decoded); // funnction passed down as props.
-        })
-        .catch(error => {
-            console.log('===> Error on login', error);
-            alert('Either email or password is incorrect. Please try again');
-        });
+            .then(response => {
+                const { token } = response.data;
+                // save token to localStorage
+                localStorage.setItem('jwtToken', token);
+                // set token to headers
+                setAuthToken(token);
+                // decode token to get the user data
+                const decoded = jwt_decode(token);
+                // set the current user
+                props.nowCurrentUser(decoded); // funnction passed down as props.
+            })
+            .catch(error => {
+                alert('Either email or password is incorrect. Please try again');
+            });
     }
 
     if (props.user) return <Redirect to="/profile" /> // double check
 
     return (
-       
+
         <div className="login-container">
             <div className='login-form-container'>
                 <div className='login-fields'>
-                <h1 className="login">Login</h1>
-                    <form className="login-form"onSubmit={handleSubmit}>
+                    <h1 className="login">Login</h1>
+                    <form className="login-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="email">Email  </label>
-                            <input type="text" name="email" value={email} onChange={handleEmail} className="form-control"/>
+                            <input type="text" name="email" value={email} onChange={handleEmail} className="form-control" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password  </label>
-                            <input type="password" name="password" value={password} onChange={handlePassword} className="form-control"/>
+                            <input type="password" name="password" value={password} onChange={handlePassword} className="form-control" />
                         </div>
                         <button type="submit" className="login-submit">Submit</button>
                     </form>

@@ -20,14 +20,12 @@ import Signup from './components/Signup';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   let token = localStorage.getItem('jwtToken');
-  console.log('===> Hitting a Private Route');
   return <Route {...rest} render={(props) => {
     return token ? <Component {...rest} {...props} /> : <Redirect to="/login" />
   }} />
 }
 
 function App() {
-  // Set state values
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
@@ -37,7 +35,6 @@ function App() {
 
     if (!localStorage.getItem('jwtToken')) {
       setIsAuthenticated(false);
-      console.log('====> Authenticated is now FALSE');
     } else {
       token = jwt_decode(localStorage.getItem('jwtToken'));
       setAuthToken(localStorage.getItem('jwtToken'));
@@ -46,7 +43,6 @@ function App() {
   }, []);
 
   const nowCurrentUser = (userData) => {
-    console.log('===> nowCurrent is here.');
     setCurrentUser(userData);
     setIsAuthenticated(true);
   }
@@ -86,7 +82,6 @@ function App() {
               render={() => <Volunteer user={currentUser} componentModel={'VolunteerModel'} />}
             />
             <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
-            {/* <Route path="/trade" component={Trade} /> */}
           </Switch>
           <div className='route-view'>
             {routes}

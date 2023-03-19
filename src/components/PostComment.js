@@ -14,10 +14,9 @@ const PostComment = (props) => {
 
     const setData = () => {
         let token;
-   
+
         if (!localStorage.getItem('jwtToken')) {
             setIsAuthenticated(false);
-            console.log('====> Authenticated is now FALSE');
         } else {
             token = jwt_decode(localStorage.getItem('jwtToken'));
             setAuthToken(localStorage.getItem('jwtToken'));
@@ -37,23 +36,23 @@ const PostComment = (props) => {
 
     const updatePost = async (postId, updatedComments) => {
         await PostModel.update(postId, updatedComments)
-       }
- 
-     const onFormSubmit = async(e) =>{
-         const newComment = {
-             name: currentUser.name,
-             photo: currentUser.photo,
-             content: content,
-             date: Date()
-         }
-       
-         comments.push(newComment)
-         await updatePost(props.post._id, { comment: comments })
-     }
+    }
+
+    const onFormSubmit = async (e) => {
+        const newComment = {
+            name: currentUser.name,
+            photo: currentUser.photo,
+            content: content,
+            date: Date()
+        }
+
+        comments.push(newComment)
+        await updatePost(props.post._id, { comment: comments })
+    }
 
     return (
         <div>
-            <p>Post as: { currentUser.name }</p>
+            <p>Post as: {currentUser.name}</p>
             <form onSubmit={onFormSubmit}>
                 <label>
                     Add Comment:

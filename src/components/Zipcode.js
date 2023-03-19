@@ -1,7 +1,6 @@
-import React from 'react';
-import { useState } from 'react'
-import GardenModel from '../models/garden'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
+import GardenModel from '../models/garden'
 
 const Zipcode = () => {
     const [zipcode, setZipcode] = useState('')
@@ -21,22 +20,18 @@ const Zipcode = () => {
 
     const entry = (e) => {
         setZipcode(e.target.value)
-        console.log('====> from entry', zipcode)
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
         const fetchData = async () => {
             const res = await GardenModel.query({ zip: zipcode })
-            console.log(res.data)
             setGardens(res.data)
         }
         fetchData()
-        console.log('====> from submit', zipcode)
     }
-    //Did you mean <= 1?
     return (
         <div className="pageContainer">
-            
+
 
             <form onSubmit={handleSubmit} className="zip-form">
                 <input type="text" name="zip" placeholder="Enter zipcode to find farms near you." onChange={entry} className="form-controlHp" />
