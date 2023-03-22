@@ -1,43 +1,43 @@
-         /* SIGNUP PAGE */
+/* SIGNUP PAGE */
 
-         .signup-container{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100vw;
-            height: 100vh;
-            text-align:right;
-          }
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: right;
+}
 
-          .signup-form-container {
-            background-color: rgba(255, 255, 255, 0.555);
-            padding: 50px 200px;
-          }
-          
-          .signup {
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            color: rgb(115, 181, 145);
-            font-size: 40px;
-          }
-          
-            .signup-fields {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-          
-          .signup-submit {
-            position: relative;
-            background-color: rgb(115, 181, 145);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            border: none;
-          }
+.signup-form-container {
+  background-color: rgba(255, 255, 255, 0.555);
+  padding: 50px 200px;
+}
 
-          .form-group{
-            margin:  15px 0px 15px 0px;
-          }
+.signup {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: rgb(115, 181, 145);
+  font-size: 40px;
+}
+
+.signup-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-submit {
+  position: relative;
+  background-color: rgb(115, 181, 145);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+}
+
+.form-group {
+  margin: 15px 0px 15px 0px;
+}
