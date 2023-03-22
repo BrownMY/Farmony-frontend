@@ -1,5 +1,6 @@
 # Farmony
 
+## Running the App
 
 ## To Run
 Run `npm i` to install all depedencies
