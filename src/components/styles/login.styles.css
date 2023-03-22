@@ -1,43 +1,43 @@
-         /* SIGNUP PAGE */
+/* SIGNUP PAGE */
 
-         .login-container{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100vw;
-            height: 100vh;
-            text-align:right;
-          }
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: right;
+}
 
-          .login-form-container {
-            background-color: rgba(255, 255, 255, 0.555);
-            padding: 50px 200px;
-          }
-          
-          .login{
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            color: rgb(115, 181, 145);
-            font-size: 40px;
-          }
-          
-            .login-fields {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          }
-          
-          .login-submit {
-            position: relative;
-            background-color: rgb(115, 181, 145);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            border: none;
-          }
+.login-form-container {
+  background-color: rgba(255, 255, 255, 0.555);
+  padding: 50px 200px;
+}
 
-          .form-group{
-            margin:  15px 0px 15px 0px;
-          }
+.login {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: rgb(115, 181, 145);
+  font-size: 40px;
+}
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-submit {
+  position: relative;
+  background-color: rgb(115, 181, 145);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+}
+
+.form-group {
+  margin: 15px 0px 15px 0px;
+}
