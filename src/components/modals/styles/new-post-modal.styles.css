@@ -1,74 +1,73 @@
-  .new-post-modal-container {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     position: relative;
-     top: 0;
-     text-align: left;
-     width: 60vw;
-     height: 70vh;
-     color:#5e765d;
-     background-color: #ffffff;
-     border: 1px solid #7C997B;
-     border-radius: 20px;
-     margin-left: 10px;
-     margin-top: 1vh;
-     overflow: hidden;
-   }
+.new-post-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 0;
+  text-align: left;
+  width: 60vw;
+  height: 70vh;
+  color: #5e765d;
+  background-color: #ffffff;
+  border: 1px solid #7c997b;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-top: 1vh;
+  overflow: hidden;
+}
 
-   .title-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    width:100%;
-   }
+.title-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+}
 
-   .new-post-modal-close {
-    background-color: #7C997B;
-    color:white;
-    border-radius: 25px;
-    border: 1px solid #7C997B;
-   }
+.new-post-modal-close {
+  background-color: #7c997b;
+  color: white;
+  border-radius: 25px;
+  border: 1px solid #7c997b;
+}
 
-   .new-post-title {
+.new-post-title {
+}
 
-   }
+.new-post-modal-class {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+}
 
-  .new-post-modal-class {
-    display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    z-index: 100;
-    background-color: rgba(0,0,0,0.1);
-    backdrop-filter: blur(2px);
-  }
-  
-  .no-display {
-    display: none
-  }
-  
-    .new-post-submit {
-      position: relative;
-      background-color: #7C997B;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      text-align: center;
-      border: none;
-  }
-  
-   .new-post-modal-body {
-     width: 90%;
-     max-height: 38vh;
-   }
+.no-display {
+  display: none;
+}
 
-   .new-post-modal-title {
-     width: 90%;
-   }
+.new-post-submit {
+  position: relative;
+  background-color: #7c997b;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+}
+
+.new-post-modal-body {
+  width: 90%;
+  max-height: 38vh;
+}
+
+.new-post-modal-title {
+  width: 90%;
+}

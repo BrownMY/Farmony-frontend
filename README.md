@@ -2,13 +2,19 @@
 
 
 ## To Run
+Run `npm i` to install all depedencies
 
-Create a `.env`
+
+Create a `.env` file.
 Add the following variables
+
 `REACT_APP_SERVER_URL={backend url}`
+
 `CLOUDINARY_URL=https://api.cloudinary.com/v1_1/ddmbb2ian/image/upload`
 
-Be warned, whiile I work on a better alternative, currently the above cloudinary URL is my personal account. I will able to see uploaded photos on the farmony app. You can sign up to cloudinary for free and use your personal account.
+Be warned, while I work on a better alternative, currently the above cloudinary URL is my personal account. I will be able to see uploaded photos on the farmony app. You can sign up to cloudinary for free and use your personal account too avoid this.
+
+Run `npm start` to start the app locally.
 
 ## Created by:
 Mocha Brown
